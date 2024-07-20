@@ -12,8 +12,8 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Load the initial FXML file (signin.fxml)
         Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
-        primaryStage.setTitle("Sign In");
-        primaryStage.setScene(new Scene(root, 700, 600));
+        primaryStage.setTitle("WallyLand Vacation Planner APP");
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 

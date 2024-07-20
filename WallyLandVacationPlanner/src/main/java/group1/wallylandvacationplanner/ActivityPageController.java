@@ -81,16 +81,36 @@ public class ActivityPageController implements Initializable {
             activityField1.setText(availableActivities.get(0).getName());
             activityTimeSlot1.setText(availableActivities.get(0).getTimeSlot());
             isAvailable1.setText(availableActivities.get(0).isAvailable() ? "Yes" : "No");
+            selectButton1.setVisible(true);
+        } else {
+            activityField1.setText("");
+            activityTimeSlot1.setText("");
+            isAvailable1.setText("");
+            selectButton1.setVisible(false);
         }
+        
         if (availableActivities.size() > 1) {
             activityField2.setText(availableActivities.get(1).getName());
             activityTimeSlot2.setText(availableActivities.get(1).getTimeSlot());
             isAvailable2.setText(availableActivities.get(1).isAvailable() ? "Yes" : "No");
+            selectButton2.setVisible(true);
+        } else {
+            activityField2.setText("");
+            activityTimeSlot2.setText("");
+            isAvailable2.setText("");
+            selectButton2.setVisible(false);
         }
+        
         if (availableActivities.size() > 2) {
             activityField3.setText(availableActivities.get(2).getName());
             activityTimeSlot3.setText(availableActivities.get(2).getTimeSlot());
             isAvailable3.setText(availableActivities.get(2).isAvailable() ? "Yes" : "No");
+            selectButton3.setVisible(true);
+        } else {
+            activityField3.setText("");
+            activityTimeSlot3.setText("");
+            isAvailable3.setText("");
+            selectButton3.setVisible(false);
         }
     }
 
@@ -112,6 +132,7 @@ public class ActivityPageController implements Initializable {
             boolean booked = activityController.bookActivity(currentCustomer.getId(), selectedActivity.getId());
             if (booked) {
                 System.out.println("Activity booked successfully");
+                availableActivities.remove(activityIndex);
                 displayActivities();
             } else {
                 System.out.println("Failed to book activity.");

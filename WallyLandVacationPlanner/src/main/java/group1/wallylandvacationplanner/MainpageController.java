@@ -22,13 +22,12 @@ public class MainpageController {
     private ActivityController activityController;
     private Customer currentCustomer;
 
-    @FXML
     public void initialize() {
         activityController = ActivityController.getInstance();
         currentCustomer = new Customer(1, "John Doe", "john.doe@example.com");
         activityController.addCustomer(currentCustomer);
 
-        welcomeLabel.setText("Welcome, " + currentCustomer.getName() + " to WallyLand");
+        welcomeLabel.setText("Welcome to WallyLand Vacation Planner");
 
         menuButton.getItems().addAll(
             "Main Page",
@@ -36,6 +35,10 @@ public class MainpageController {
             "Scheduled Activities",
             "Customer Service"
         );
+    }
+
+    public void initData(String firstName, String lastName) {
+        welcomeLabel.setText("Welcome, " + firstName + " " + lastName + " to WallyLand Vacation Planner");
     }
 
     @FXML
@@ -75,5 +78,13 @@ public class MainpageController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void handleExitButtonAction(ActionEvent event) {
+        //Get Current Stage
+        Stage stage = (Stage) menuButton.getScene().getWindow();
+        //Close the window
+        stage.close();
     }
 }

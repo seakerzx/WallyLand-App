@@ -7,35 +7,46 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.Button;
 
 public class SigninController {
 
     @FXML
-    private TextField firstNameField;
+    private TextField firstNametext;
 
     @FXML
-    private TextField lastNameField;
+    private TextField lastNameText;
+
+    @FXML
+    private Button signinButton;
+
+    @FXML
+    private Label errorMessage;
 
     @FXML
     private void onClickSignin(ActionEvent event) throws IOException {
-        //String firstName = firstNameField.getText();
-        //String lastName = lastNameField.getText();
+        String firstName = firstNametext.getText();
+        String lastName = lastNameText.getText();
 
-        // Load the next page (mainpage.fxml)
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainpage.fxml"));
-        Parent root = loader.load();
+        if (firstName.isEmpty() || lastName.isEmpty()) {
+            errorMessage.setText("The required fields are blank. Please enter your name.");
+        } else {
+            // Load the next page (mainpage.fxml)
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainpage.fxml"));
+            Parent root = loader.load();
 
-        // Optionally pass data to the next controller
-        //MainpageController mainpageController = loader.getController();
-        //mainpageController.initData(firstName, lastName);
+            // Pass data to the next controller
+            MainpageController mainpageController = loader.getController();
+            mainpageController.initData(firstName, lastName);
 
-        // Switch to the next scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+            // Switch to the next scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
 }
-
