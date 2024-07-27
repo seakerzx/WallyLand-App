@@ -57,7 +57,7 @@ public class MainpageController {
                 fxmlFile = "scheduledactivity.fxml";
                 break;
             case "Customer Service":
-                fxmlFile = "mainpage.fxml";
+                fxmlFile = "customerservice.fxml";
                 break;
             default:
                 return;

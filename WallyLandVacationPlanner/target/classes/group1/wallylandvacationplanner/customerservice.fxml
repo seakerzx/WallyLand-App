@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="group1.wallylandvacationplanner.CustomerSupportController">
+    <padding>
+        <Insets top="10" right="20" bottom="10" left="20"/>
+    </padding>
+    <top>
+        <Label fx:id="ticketNumberLabel" text="Ticket Number: " BorderPane.alignment="CENTER"/>
+    </top>
+    <center>
+        <TextArea fx:id="complaintTextArea" wrapText="true"/>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Review Issue" onAction="#reviewIssue"/>
+            <Button text="View Ticket" onAction="#viewTicket"/>
+            <Button text="Show Used Tickets" onAction="#showUsedTickets"/>
+        </HBox>
+    </bottom>
+</BorderPane>

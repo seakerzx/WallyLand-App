@@ -156,7 +156,7 @@ public class ActivityPageController implements Initializable {
                 fxmlFile = "scheduledactivity.fxml";
                 break;
             case "Customer Service":
-                fxmlFile = "mainpage.fxml";
+                fxmlFile = "customerservice.fxml";
                 break;
             default:
                 return;
